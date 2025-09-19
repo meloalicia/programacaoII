@@ -12,3 +12,4 @@ db.once(
    }
 );
 
+export default db;
