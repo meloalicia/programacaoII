@@ -4,35 +4,31 @@ const { Schema } = mongoose;
 
 // schema de prescrições
 const PrescriptionSchema = new Schema({
-  prescriptionId: {
+    date: {
+        type: Date,
+        required: [true, "Date of Prescription is required"]
+    },
+
+    appointmentIdId: {
     type: String,
     required: [true, "PrescriptionId is required"],
     unique: true
   },
 
-  patientId: {
+  medicine: {
     type: String,
-    required: [true, "PatientId is required"]
+    required: [true, "Medicine is required"]
   },
 
-  doctorId: {
+  dosage: {
     type: String,
-    required: [true, "DoctorId is required"]
+    required: [true, "dosage is required"]
   },
-
-  medications: [
-    {
-      name: { type: String, required: [true, "Medication name is required"] },
-      dosage: { type: String, required: [true, "Dosage is required"] }, // ex: "500mg"
-      frequency: { type: String, required: [true, "Frequency is required"] }, // ex: "2x ao dia"
-      duration: { type: String, required: [true, "Duration is required"] } // ex: "7 dias"
-    }
-  ],
 
   instructions: {
     type: String,
-    required: false
 },
+
   createdAt: {
     type: Date,
     default: Date.now
